@@ -11,7 +11,9 @@ type Props = {
   todo: Todo;
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
+  children?: React.ReactNode;
 };
+
 
 function TodoItem({ todo, onToggle, onDelete }: Props) {
   console.log("todo items render");

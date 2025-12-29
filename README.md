@@ -25,8 +25,6 @@ npm install
 Running the Project
 Start the development server:
 
-bash
-Sao chép mã
 npm run dev
 Open your browser and navigate to:
 http://localhost:5173

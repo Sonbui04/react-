@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "./Button";
 
 export type Todo = {
@@ -12,11 +13,9 @@ type Props = {
   onDelete: (id: number) => void;
 };
 
-export default function TodoItem({
-  todo,
-  onToggle,
-  onDelete,
-}: Props) {
+function TodoItem({ todo, onToggle, onDelete }: Props) {
+  console.log("todo items render");
+
   return (
     <li>
       <span
@@ -32,3 +31,5 @@ export default function TodoItem({
     </li>
   );
 }
+
+export default React.memo(TodoItem);

@@ -1,6 +1,13 @@
-import Lesson26 from "./lessons/lesson26/Lesson26_useRef";
-
+import { ThemeProvider } from "./components/theme-context";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import Lesson36 from "./lessons/lesson36/Lesson36_ComplexForm";
 
 export default function App() {
-  return <Lesson26 />;
+  return (
+    <ThemeProvider>
+      <ErrorBoundary>
+        <Lesson36 />
+      </ErrorBoundary>
+    </ThemeProvider>
+  );
 }

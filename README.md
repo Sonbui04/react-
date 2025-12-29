@@ -29,11 +29,8 @@ bash
 Sao chép mã
 npm run dev
 Open your browser and navigate to:
-
-text
-Sao chép mã
 http://localhost:5173
-Running a Specific Lesson
+##Running a Specific Lesson
 Each lesson is implemented as a separate React component.
 
 To run a specific lesson:
@@ -43,13 +40,7 @@ Open src/App.tsx
 Import the lesson component
 
 Render it inside App
-
-Example:
-
-tsx
-Sao chép mã
 import Lesson26_useRef from "./lessons/Lesson26_useRef";
-
 function App() {
   return <Lesson26_useRef />;
 }

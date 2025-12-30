@@ -17,7 +17,7 @@ export default function TodoForm({ onAdd }: Props) {
 
     onAdd(title, desc, priority);
 
-    // reset form
+   
     setTitle("");
     setDesc("");
     setPriority("medium");

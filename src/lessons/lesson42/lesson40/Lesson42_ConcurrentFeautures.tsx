@@ -1,10 +1,11 @@
+import { useTransition } from "react";
 import { useTodos } from "./hooks/useTodos";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import Filter from "./components/Filter";
 import SearchInput from "./components/SearchInput";
 
-export default function Lesson40_TodoApp() {
+export default function Lesson42_ConcurrentTodoApp() {
   const {
     todos,
     visibleTodos,
@@ -20,17 +21,22 @@ export default function Lesson40_TodoApp() {
     setPriority,
   } = useTodos();
 
+  const [isPending, startTransition] = useTransition();
+
   return (
     <div style={{ padding: 20, maxWidth: 420 }}>
-      <h2>Lesson 40 - FinalTodoApp</h2>
+      <h2>Lesson 42 – Concurrent TodoApp</h2>
 
- 
-      <SearchInput value={query} onChange={setQuery} />
+      <SearchInput value={query} onChange={value => {startTransition(() => {setQuery(value); });
+        }}
+      />
 
-    
+      {isPending && <small>Searching...</small>}
+
+      
       <Filter value={filter} onChange={setFilter} />
 
-  
+ 
       <TodoForm
         onAdd={(title, desc, priority) =>
           addTodo({
@@ -45,6 +51,7 @@ export default function Lesson40_TodoApp() {
         }
       />
 
+    
       <TodoList
         todos={visibleTodos}
         onToggle={toggleTodo}

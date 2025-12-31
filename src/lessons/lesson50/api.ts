@@ -1,4 +1,4 @@
-// lesson50/api.ts
+
 export type Todo = {
   id: number;
   text: string;

@@ -1,12 +1,11 @@
 import { ThemeProvider } from "./components/theme-context";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import Lesson51 from "./lessons/lesson51/Lesson51_MemoPitfalls";
-
+import Lesson56 from "./lessons/lesson56/Lesson56_DesignSystem";
 export default function App() {
   return (
     <ThemeProvider>
       <ErrorBoundary>
-        <Lesson51/>
+        <Lesson56 />
       </ErrorBoundary>
     </ThemeProvider>
   );

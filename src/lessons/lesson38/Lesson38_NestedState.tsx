@@ -35,8 +35,14 @@ type TodoAction =
 
 function todoReducer(state: Todo[], action: TodoAction): Todo[] {
     switch (action.type) {
-        case "ADD":
-            return [...state, action.payload];
+        case "ADD": {
+  const meta = action.payload.meta ?? {
+    priority: "medium" as const,
+    createdAt: Date.now(),
+  };
+
+  return [...state, { ...action.payload, meta }];
+}
 
         case "TOGGLE":
             return state.map(t =>

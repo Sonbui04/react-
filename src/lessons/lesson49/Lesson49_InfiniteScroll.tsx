@@ -7,23 +7,24 @@ export default function Lesson49InfiniteScroll() {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  // ref để chặn gọi API trùng
+ 
   const fetchingRef = useRef(false);
 
-  // load data theo page
+
   useEffect(() => {
     if (!hasMore) return;
     if (fetchingRef.current) return;
 
     fetchingRef.current = true;
 
-    // chuyển sang async boundary để tránh warning
+  
     Promise.resolve().then(() => setLoading(true));
 
     fetchTodosPage(page)
       .then(newTodos => {
-        setTodos(prev => {
-          // 🔑 TRÁNH DUPLICATE THEO ID
+        setTodos(prev => 
+          {
+
           const existingIds = new Set(prev.map(t => t.id));
           const filtered = newTodos.filter(
             t => !existingIds.has(t.id)
@@ -31,7 +32,7 @@ export default function Lesson49InfiniteScroll() {
           return [...prev, ...filtered];
         });
 
-        // hết data
+
         if (newTodos.length === 0) {
           setHasMore(false);
         }
@@ -42,7 +43,6 @@ export default function Lesson49InfiniteScroll() {
       });
   }, [page, hasMore]);
 
-  // lắng nghe scroll
   useEffect(() => {
     const onScroll = () => {
       const nearBottom =
